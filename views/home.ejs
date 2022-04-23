@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>ok</h1> 
+    <h2>
+        <%= locals.user.name %>
+    </h2>      
+    <ol>
+        <% for (d of data){%>
+
+            <li>
+                <%= d.name %>
+                <small>
+                    <a class="delete-button" href="/user-delete/<%= d.id %>">delete</a>
+                    <a class="delete-button" href="/user-update/<%= d.id %>">update</a>
+
+                </small>
+
+            </li>
+            
+        
+        <%} %>
+      
+    </ol>
+    <table>
+        <tr>
+            <th>name</th>
+            <th>email</th>
+          </tr>
+        <% for (d of data){%>
+        <tr>
+            <th><%= d.name %></th>
+            <th><%= d.email %></th>
+        </tr>
+        <%} %> 
+    </table>
+    <a href="/sign-out">logout</a>
+</body>
+</html>
